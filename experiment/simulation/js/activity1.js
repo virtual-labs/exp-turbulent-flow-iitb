@@ -353,5 +353,5 @@ function a1_mouseclick(e) {
     let y = Math.round((canvas.height - (e.clientY - rect.y)) / lscale);
     a1_check_isinside(x, y);
 }
-//activity1();
+activity1();
 //# sourceMappingURL=activity1.js.map

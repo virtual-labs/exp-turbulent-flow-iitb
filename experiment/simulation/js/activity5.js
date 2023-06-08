@@ -60,7 +60,7 @@ function activity5() {
 }
 var all_propeties = `
 
-<div style="overflow-y: auto !important; max-height: 80%;">
+<div style="overflow-y: auto !important; max-height: 85%;">
 <table class="table" style="height: 30% !important;">
     <thead>
       <tr>
@@ -102,6 +102,9 @@ var all_propeties = `
     <tr>
     <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Cross-Sectional area of inner tube, S (m<sup>2</sup>)</td>
     <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">3849</td>
+
+    <tr>
+    <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Note: Re is Reynolds Number</td>
     
   </tr>
     </tbody>
@@ -114,6 +117,7 @@ var all_propeties = `
   <p style="margin-up: 2%; margin-bottom: 0;">Q = m x C<sub>p</sub> x (T<sub>i</sub> - T<sub>o</sub>)</p>
   <p style="margin-up: 2%; margin-bottom: 0;"><img style="width: 55%" src="./images/lmtd.png" alt=""></p>
   <p style="margin-up: 2%; margin-bottom: 0;">U = Q/(A x LMTD)</p>
+  <p style="margin-up: 2%; margin-bottom: 0;">Re = (u x &rho; x d<sub>1</sub>) / &mu; </p>
 </div>
 
 </div>
@@ -182,6 +186,7 @@ var main_table = `
         <th scope="col">V m<sup>3</sup>/s x 10<sup>-4</sup></th>
         <th scope="col">u m/s</th>
         <th scope="col">m (kg/s) x 10<sup>-3</sup></th>
+        <th scope="col">Re</th>
         <th scope="col">Q (W)</th>
         <th scope="col">LMTD (K)</th>
         <th scope="col">U (W/m<sup>2</sup>-K)</th>
@@ -202,6 +207,7 @@ var main_table = `
           <td><input id="mt-1" type="text" class="form-control" name="" id=""></td>
           <td><input id="mt-2" type="text" class="form-control" name="" id=""></td>
           <td><input id="mt-3" type="text" class="form-control" name="" id=""></td>
+          <td><input id="mt-31" type="text" class="form-control" name="" id=""></td>
           <td><input id="mt-4" type="text" class="form-control" name="" id=""></td>
           <td><input id="mt-5" type="text" class="form-control" name="" id=""></td>
           <td><input id="mt-6" type="text" class="form-control" name="" id=""></td>
@@ -228,6 +234,7 @@ function act5_verify_obtable() {
     let val1 = document.getElementById("mt-1");
     let val2 = document.getElementById("mt-2");
     let val3 = document.getElementById("mt-3");
+    let val31 = document.getElementById("mt-31");
     let val4 = document.getElementById("mt-4");
     let val5 = document.getElementById("mt-5");
     let val6 = document.getElementById("mt-6");
@@ -245,6 +252,10 @@ function act5_verify_obtable() {
     }
     if (!verify_values(parseFloat(val3.value), 191)) {
         alert("please correct the m value");
+        return;
+    }
+    if (!verify_values(parseFloat(val31.value), 72847)) {
+        alert("please correct the Nre value");
         return;
     }
     if (!verify_values(parseFloat(val4.value), 3823.3)) {
@@ -296,6 +307,7 @@ function complete_main_table() {
         main_table_data[i][11] = main_table_data[i][9] * 10000 / (219.8 * main_table_data[i][10]);
         main_table_data[i][12] = 1 / (main_table_data[i][11]);
         main_table_data[i][13] = 1 / (Math.pow(main_table_data[i][7], (0.8)));
+        main_table_data[i][14] = (main_table_data[i][7] * 980 * 0.007) / 0.0004758;
         row.innerHTML = `
         <td>${i + 1}</td>
         <td>${main_table_data[i][1].toFixed(1)}</td>
@@ -306,6 +318,7 @@ function complete_main_table() {
         <td>${(main_table_data[i][6] * 10000).toFixed(2)}</td>
         <td>${(main_table_data[i][7]).toFixed(2)}</td>
         <td>${(main_table_data[i][8] * 1000).toFixed(0)}</td>
+        <td>${main_table_data[i][14].toFixed(0)}</td>
         <td>${main_table_data[i][9].toFixed(0)}</td>
         <td>${main_table_data[i][10].toFixed(2)}</td>
         <td>${main_table_data[i][11].toFixed(2)}</td>

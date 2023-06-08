@@ -1,6 +1,6 @@
 // basic images
 var pump = new Image();
-pump.src = './images/Assambly_PNG/pump.png';
+pump.src = './images/Assambly_PNG/Pump.png';
 var vertical_pipe = new Image();
 vertical_pipe.src = './images/Assambly_PNG/Pipe_02.png';
 var horizontal_pipe = new Image();
@@ -24,13 +24,13 @@ blue_valve.src = './images/Assambly_PNG/Valve_01.png';
 var purple_valve = new Image();
 purple_valve.src = './images/Assambly_PNG/Valve_02.png';
 var heater = new Image();
-heater.src = './images/Assambly_PNG/heater.png';
+heater.src = './images/Assambly_PNG/Heater.png';
 var rotometer = new Image();
 rotometer.src = './images/Assambly_PNG/Rotometer.png';
 // highlighted images
 //pump
 var pump_right = new Image();
-pump_right.src = './images/Highlighted_Images/Pump_orangeGlow.webp';
+pump_right.src = './images/Highlighted_Images/Pump_OrangeGlow.webp';
 var pump_wrong = new Image();
 pump_wrong.src = './images/Highlighted_Images/Pump_PurpleGlow.webp';
 //vertical pipe

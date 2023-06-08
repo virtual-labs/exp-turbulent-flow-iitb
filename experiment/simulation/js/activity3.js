@@ -78,5 +78,4 @@ function act3_verify_obtable() {
     var bsOffcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasRight3"));
     bsOffcanvas.show();
 }
-activity3();
 //# sourceMappingURL=activity3.js.map
