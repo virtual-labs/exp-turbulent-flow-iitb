@@ -512,6 +512,42 @@ var Chemistry;
         }
     }
     Chemistry.anim_image = anim_image;
+    class Dual_Anim extends anim_image {
+        constructor(image, custome_img, stpt, width, height, shift, delay, canvas) {
+            super(image, stpt, width, height, canvas);
+            this.timer = 0;
+            this.startPosition = 0;
+            this.currentPosition = 0;
+            this.custome_img = custome_img;
+            this.shift = shift;
+            this.delay = delay;
+            this.currentPosition = custome_img.stpt.y;
+            this.startPosition = custome_img.stpt.y;
+        }
+        draw() {
+            if (this.move_x) {
+                this.motion_x();
+            }
+            this.context.save();
+            this.context.translate(this.stpt.x * lscale, this.stpt.y * lscale);
+            this.context.scale(1, -1);
+            if (this.revolve) {
+                this.rotate();
+            }
+            this.context.drawImage(this.img, this.startx, this.dy - this.l, this.dx - this.width, this.dy, (-this.dx / 2 + this.startx) * lscale, (this.dy / 2 - this.l) * lscale, (this.dx - this.width) * lscale, (this.dy) * lscale);
+            if (this.l < this.l_last) {
+                this.l++;
+            }
+            this.context.restore();
+            setTimeout(() => {
+                if (Math.abs(this.currentPosition - this.startPosition) < this.shift * lscale) {
+                    this.custome_img.stpt.y += 0.8;
+                    this.currentPosition = this.custome_img.stpt.y;
+                }
+            }, this.delay);
+        }
+    }
+    Chemistry.Dual_Anim = Dual_Anim;
     class anim_image_x_dir extends Custome_image {
         constructor(image, stpt, width, height, canvas) {
             super(image, stpt, width, height, canvas);

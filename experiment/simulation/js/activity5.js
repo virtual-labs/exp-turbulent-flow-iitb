@@ -81,7 +81,7 @@ var all_propeties = `
         <td style="padding: 2% 2% !important; font-size: 12px">100</td>
       </tr>
       <tr>
-        <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Viscosity, &nu; (kg/m-s)</td>
+        <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Viscosity, &mu; (kg/m-s)</td>
         <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">0.00047</td>
         
       </tr>
@@ -102,6 +102,26 @@ var all_propeties = `
     <tr>
     <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Cross-Sectional area of inner tube, S (m<sup>2</sup>)</td>
     <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">3849</td>
+
+    <tr>
+      <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Inside Diameter of Inner Tube d<sub>1</sub> (cm)</td>
+      <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">0.7</td>
+    </tr>
+
+    <tr>
+    <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Outside Diameter of Inner Tube d<sub>2</sub> (cm)</td>
+    <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">1.0</td>
+  </tr>
+
+  <tr>
+  <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Inside Diameter of Outer Tube D<sub>1</sub> (cm)</td>
+  <td style="padding: 2% 2% !important; font-size: 12px" colspan="2">0.7</td>
+</tr>
+
+<tr>
+<td style="padding: 2% 2% !important; font-size: 12px" scope="row">Length of Heat Exchanger L (cm)</td>
+<td style="padding: 2% 2% !important; font-size: 12px" colspan="2">100</td>
+</tr>
 
     <tr>
     <td style="padding: 2% 2% !important; font-size: 12px" scope="row">Note: Re is Reynolds Number</td>
@@ -173,7 +193,7 @@ var all_properties_without_table = `
 </div>
 `;
 var main_table = `
-<div class="table-responsive">
+<div class="table-responsive" style='height: 55vw; overflow: auto;'>
 <table class="table" style="height: 80vh !important;">
     <thead>
       <tr>
@@ -240,7 +260,7 @@ function act5_verify_obtable() {
     let val6 = document.getElementById("mt-6");
     let val7 = document.getElementById("mt-7");
     let val8 = document.getElementById("mt-8");
-    console.log(parseFloat(val1.value));
+    console.log(1.9, 5.053, 191, 72853, 3823.3, 35.65, 4876.84, 2.051, 274);
     // console.log(Q.value, To.value, Ti.value, ti.value, to.value);
     if (!verify_values(parseFloat(val1.value), 1.9)) {
         alert("please correct the V value");
@@ -254,7 +274,7 @@ function act5_verify_obtable() {
         alert("please correct the m value");
         return;
     }
-    if (!verify_values(parseFloat(val31.value), 72847)) {
+    if (!verify_values(parseFloat(val31.value), 72853)) {
         alert("please correct the Nre value");
         return;
     }
@@ -375,10 +395,6 @@ function draw_chart() {
                     borderColor: 'blue',
                     tension: 0.5,
                     showLine: false,
-                    // yAxisID: 'A',
-                    // borderWidth: 1,
-                    // borderColor: "green",
-                    // backgroundColor: "rgba(34, 139, 34, 0.5)",
                 },
                 {
                     label: 'Best Fit',
@@ -423,4 +439,5 @@ function draw_chart() {
         }
     });
 }
+//activity5();
 //# sourceMappingURL=activity5.js.map
