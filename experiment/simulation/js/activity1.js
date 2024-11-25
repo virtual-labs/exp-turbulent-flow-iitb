@@ -21,7 +21,7 @@ function start_act1() {
 function move_to_activity3() {
     document.getElementById('panel1_btn').remove();
     canvas.removeEventListener('click', a1_mouseclick);
-    activity3();
+    cal_area();
 }
 //varibles related to activity 1
 var question = [];
@@ -181,15 +181,15 @@ function load_higlighted_images() {
         [t_in_right, t_in_wrong]
     ];
     a1_labels = [
-        new Chemistry.Text("tank", new Chemistry.Point(400, 80), canvas),
-        new Chemistry.Text("pump", new Chemistry.Point(1300, 1700), canvas),
-        new Chemistry.Text("test_section", new Chemistry.Point(1050, 730), canvas),
-        new Chemistry.Text("horizontal_pipe", new Chemistry.Point(200, 850), canvas),
-        new Chemistry.Text("vertical_pipe", new Chemistry.Point(100, 40), canvas),
-        new Chemistry.Text("rotometer", new Chemistry.Point(80, 500), canvas),
-        new Chemistry.Text("heater", new Chemistry.Point(1150, 480), canvas),
-        new Chemistry.Text("temp_controller", new Chemistry.Point(1000, 600), canvas),
-        new Chemistry.Text("t_in", new Chemistry.Point(600, 420), canvas),
+        new Chemistry.Text("Tank", new Chemistry.Point(400, 80), canvas),
+        new Chemistry.Text("Pump", new Chemistry.Point(1300, 30), canvas),
+        new Chemistry.Text("Test Section", new Chemistry.Point(1450, 700), canvas),
+        new Chemistry.Text("Horizontal Pipe", new Chemistry.Point(200, 850), canvas),
+        new Chemistry.Text("Vertical Pipe", new Chemistry.Point(100, 40), canvas),
+        new Chemistry.Text("Rotometer", new Chemistry.Point(80, 500), canvas),
+        new Chemistry.Text("Heater", new Chemistry.Point(1150, 330), canvas),
+        new Chemistry.Text("Temp. Controller", new Chemistry.Point(1000, 600), canvas),
+        new Chemistry.Text("Temp. Indicator", new Chemistry.Point(550, 420), canvas),
     ];
 }
 function a1_random_questions() {
@@ -324,7 +324,7 @@ function a1_change_question() {
         global_score = total_score;
         const act2 = document.createElement("input");
         act2.type = "button";
-        act2.onclick = activity3;
+        act2.onclick = activity2;
         //document.getElementById("root").appendChild(act2);
         act2.value = "Next";
         act2.className = "btn btn-success";
@@ -352,6 +352,10 @@ function a1_mouseclick(e) {
     let x = Math.round((e.clientX - rect.x) / lscale);
     let y = Math.round((canvas.height - (e.clientY - rect.y)) / lscale);
     a1_check_isinside(x, y);
+}
+function show_des() {
+    var bsOffcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasRight3"));
+    bsOffcanvas.show();
 }
 activity1();
 //# sourceMappingURL=activity1.js.map
