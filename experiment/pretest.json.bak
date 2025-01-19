@@ -1,0 +1,29 @@
+[
+   {
+      "question": "Which of the following is more correct for laminar flow?",
+      "qid": 1,
+      "option_a": "Re < 2100",
+      "option_b": "2100 < Re < 4000",
+      "option_c": "Re > 4000",
+      "option_d": "Re ≤ 2100",
+      "correct_option": "a"
+   },
+   {
+      "question": "Which of the following is more correct for turbulent flow?",
+      "qid": 2,
+      "option_a": "Re > 2100",
+      "option_b": "Re > 4000",
+      "option_c": "4000 < Re < 10000",
+      "option_d": "Re > 10000",
+      "correct_option": "b"
+   },
+   {
+      "question": "Which of the following is more correct for Laminar flow?",
+      "qid": 3,
+      "option_a": "Hagen Poiseuille equation",
+      "option_b": "Stokes law",
+      "option_c": "Boundary layer",
+      "option_d": "Efflux time",
+      "correct_option": "a"
+   }
+]
